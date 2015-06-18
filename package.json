@@ -1,0 +1,22 @@
+{
+  "name": "runposse",
+  "version": "1.0.0",
+  "description": "Run posse web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jsp",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "compression": "^1.5.0",
+    "express": "~4.12.4",
+    "method-override": "^2.3.3",
+    "morgan": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeffsp/runposse.git"
+  }
+}
