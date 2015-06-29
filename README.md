@@ -1,6 +1,4 @@
-runposse
-========
+runapp
+======
 
-Run Posse Web App
-
-by Jeff and Steve
+Running Web App
