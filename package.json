@@ -11,12 +11,14 @@
   "dependencies": {
     "body-parser": "^1.13.1",
     "compression": "^1.5.0",
-    "express": "~4.12.4",
-    "method-override": "^2.3.3",
-    "express-session": "~1.7.6",
-    "morgan": "^1.6.0",
     "ejs": "~1.0.0",
-    "mongoose": "~3.8.15"
+    "express": "~4.12.4",
+    "express-session": "~1.7.6",
+    "method-override": "^2.3.3",
+    "mongoose": "~3.8.15",
+    "morgan": "^1.6.0",
+    "passport": "~0.2.1",
+    "passport-local": "^1.0.0"
   },
   "repository": {
     "type": "git",
