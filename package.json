@@ -1,22 +1,25 @@
 {
-  "name": "runposse",
-  "version": "1.0.0",
-  "description": "Run posse web app",
+  "name": "runapp",
+  "version": "0.0.1",
+  "description": "Cannot GET/",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "jsp",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.13.1",
-    "compression": "^1.5.0",
-    "express": "~4.12.4",
-    "method-override": "^2.3.3",
-    "morgan": "^1.6.0"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jeffsp/runposse.git"
+    "url": "git@github.com:jeffsp/runapp.git"
+  },
+  "author": "Jeff & Stephen",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.0.6",
+    "express": "^4.10.7",
+    "express-session": "^1.10.1",
+    "mongoose": "^3.8.21",
+    "passport": "^0.2.1",
+    "passport-facebook": "^1.0.3",
+    "passport-local": "^1.0.0"
   }
 }

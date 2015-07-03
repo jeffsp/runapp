@@ -1,3 +1,6 @@
 exports.render = function(req, res) {
-     res.send('Hello World');
+    res.render('index', {
+    	title: 'Run app',
+    	user: req.user ? req.user.username : ''
+    });
 };
