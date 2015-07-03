@@ -2,19 +2,58 @@
 <html>
 <head>
     <title><%= title %></title>
+
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1><%= title %></h1>
+	<div class="container">
+	    <h1><%= title %></h1>
+	    <p class="lead">Run app is an app that will do something useful.</p>
+	    <% if ( user ) { %>
+			<h2>Hello <%=user%> </h2>
+			<a href="/logout">Logout</a>
+		<% } else { %>
 
-    <% if ( user ) { %>
-		<h2>Hello <%=user%> </h2>
-		<a href="/logout">Logout</a>
-	<% } else { %>
-		<a href="/register">Register</a>
-		<a href="/login">Login</a>
-	<% } %>
+		<% } %>
+	</div>
 
-    <img src="img/logo.jpg" alt="Hack Hands logo">
+	<div class="container">
+    
+
+    <div>
+    	<h3>Login or <a href="/register">Sign up</a></h3>
+
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-6">	
+			    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="username" placeholder="User Name">
+					</div>
+					<span class="help-block"></span>
+										
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+                    <span class="help-block">Password error</span>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+				</form>
+			</div>
+    	</div>
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-3">
+				<label class="checkbox">
+					<input type="checkbox" value="remember-me">Remember Me
+				</label>
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<a href="#">Forgot password?</a>
+			</div>
+		</div>	    	
+	</div>
 </body>
 </html>

@@ -12,14 +12,14 @@
   },
   "author": "Jeff & Stephen",
   "dependencies": {
-    "body-parser": "^1.10.1",
-    "connect-flash": "^0.1.1",
-    "ejs": "^2.0.6",
-    "express": "^4.10.7",
-    "express-session": "^1.10.1",
-    "mongoose": "^3.8.21",
-    "passport": "^0.2.1",
-    "passport-facebook": "^1.0.3",
-    "passport-local": "^1.0.0"
+    "body-parser": "*",
+    "connect-flash": "*",
+    "ejs": "*",
+    "express": "^4.13.0",
+    "express-session": "*",
+    "mongoose": "^4.0.6",
+    "passport": "*",
+    "passport-facebook": "^2.0.0",
+    "passport-local": "*"
   }
 }
