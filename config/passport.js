@@ -7,6 +7,7 @@ module.exports = function() {
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
+
     passport.deserializeUser(function(id, done) {
         User.findOne({
             _id: id
@@ -14,5 +15,6 @@ module.exports = function() {
             done(err, user);
         });
     });
+
     require('./strategies/local.js')();
 };
