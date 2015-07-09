@@ -24,6 +24,13 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.cs
                 <tr> <th> Name </th> <th> Email </th> <th> City </th>
                 </tr>
             </thead>
+            <tbody>
+                <tr ng-repeat='user in user_list'>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.city}}</td>
+                </tr>
+            </tbody>
         </table>
 
     </div>
