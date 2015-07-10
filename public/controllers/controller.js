@@ -13,7 +13,8 @@ runapp.controller('AppCtrl',['$scope', '$http', function($scope, $http) {
     refresh();
 
     $scope.addUser = function() {
-        console.log('addUser()' + $scope.user);
+        console.log('addUser():');
+        console.log($scope.user);
         $http.post('/users', $scope.user).success(function(response) {
             console.log(response);
             refresh();
