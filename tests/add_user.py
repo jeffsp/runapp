@@ -11,6 +11,8 @@ payload = {
     "email" : "%s" % email,
     "city" : "%s" % city,
     }
+headers = {'content-type': 'application/json'}
+data=json.dumps(payload)
 
-r = requests.post("http://localhost:3001/users", data=json.dumps(payload))
+r = requests.post("http://localhost:3001/users", headers=headers, data=data)
 print(r.text)
