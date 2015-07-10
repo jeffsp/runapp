@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import requests
+import json
 
 name = raw_input('Enter name: ')
 email = raw_input('Enter email: ')
@@ -10,5 +11,6 @@ payload = {
     "email" : "%s" % email,
     "city" : "%s" % city,
     }
-r = requests.post("http://localhost:3001/users", data=payload)
+
+r = requests.post("http://localhost:3001/users", data=json.dumps(payload))
 print(r.text)

@@ -3,31 +3,30 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var app = express();
 var config = require('./config/config');
+var mongojs = require('mongojs');
+var db = mongojs('users', ['users']);
+var bodyParser = require('body-parser')
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
 app.get('/users', function (req, res) {
     console.log('/users received a get request');
+    db.users.find(function(err, docs) {
+        if (err != null)
+            console.log('error:' + err);
+        else
+            console.log('db.users.find() success');
+        res.json(docs);
+    });
+});
 
-    user1 = {
-        name: 'name1',
-        email: 'email1',
-        city: 'city1',
-    };
-    user2 = {
-        name: 'name2',
-        email: 'email2',
-        city: 'city2',
-    };
-    user3 = {
-        name: 'name3',
-        email: 'email3',
-        city: 'city3',
-    };
-
-    var user_list = [user1, user2, user3];
-
-    res.json(user_list);
+app.post('/users', function (req, res) {
+    console.log('/users received a post request');
+    console.log(req.body);
+    db.users.insert(req.body, function(err, doc) {
+        res.json(doc);
+    });
 });
 
 app.listen(config.port);
