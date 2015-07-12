@@ -39,6 +39,8 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.cs
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.city}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td>
                 </tr>
             </tbody>
         </table>

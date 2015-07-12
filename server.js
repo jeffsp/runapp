@@ -25,8 +25,16 @@ app.post('/users', function (req, res) {
     console.log('/users received a post request');
     console.log(req.body);
     db.users.insert(req.body, function(err, doc) {
-        res.json(doc);
-    });
+            res.json(doc);
+        });
+});
+
+app.delete('/users/:id', function (req, res) {
+    var id = req.params.id;
+    console.log('/users received a delete request for id ' + id);
+    db.users.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+            res.json(doc);
+        });
 });
 
 app.listen(config.port);

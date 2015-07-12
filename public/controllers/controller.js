@@ -21,4 +21,11 @@ runapp.controller('AppCtrl',['$scope', '$http', function($scope, $http) {
         });
     }
 
+    $scope.remove = function (id) {
+        console.log('removing ' + id);
+        $http.delete('/users/' + id).success(function(response) {
+            refresh();
+        });
+    }
+
 }]);
