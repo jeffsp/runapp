@@ -33,8 +33,12 @@ app.delete('/users/:id', function (req, res) {
     var id = req.params.id;
     console.log('/users received a delete request for id ' + id);
     db.users.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
-            res.json(doc);
-        });
+        if (err != null)
+            console.log('error:' + err);
+        else
+            console.log('db.users.remove() success');
+        res.json(doc);
+    });
 });
 
 app.get('/users/:id', function (req, res) {
