@@ -37,5 +37,24 @@ app.delete('/users/:id', function (req, res) {
         });
 });
 
+app.get('/users/:id', function (req, res) {
+    var id = req.params.id;
+    console.log('/users received a get request for id ' + id);
+    db.users.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+        res.json(doc);
+    });
+});
+
+app.put('/users/:id', function (req, res) {
+    var id = req.params.id;
+    console.log('/users received a put request for id ' + id);
+    db.users.findAndModify({
+        query: {_id: mongojs.ObjectId(id)},
+        update: {$set: {name: req.body.name, email: req.body.email, city: req.body.city}},
+        new: true}, function (err, doc) {
+            res.json(doc);
+        });
+});
+
 app.listen(config.port);
 console.log('Server running at http://localhost:' + config.port);

@@ -28,4 +28,22 @@ runapp.controller('AppCtrl',['$scope', '$http', function($scope, $http) {
         });
     }
 
+    $scope.edit = function(id) {
+        console.log(id);
+        $http.get('/users/' + id).success(function(response) {
+            $scope.user = response;
+        });
+    };
+
+    $scope.update = function() {
+        console.log($scope.user._id);
+        $http.put('/users/' + $scope.user._id, $scope.user).success(function(response) {
+            refresh();
+        })
+    };
+
+    $scope.deselect = function() {
+        $scope.user = "";
+    }
+
 }]);
