@@ -2,6 +2,12 @@
 
 import requests
 
-uid = raw_input('Enter user id: ')
-r = requests.delete("http://localhost:3001/users/%s" % uid)
-print(r.text)
+
+def delete_user(uid):
+    r = requests.delete("http://localhost:3001/users/%s" % uid)
+    return r.text
+
+if __name__ == '__main__':
+    uid = raw_input('Enter user id: ')
+    text = delete_user(uid)
+    print(text)
