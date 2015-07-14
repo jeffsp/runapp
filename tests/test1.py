@@ -1,41 +1,29 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import requests
-import json
-import random
-import string
 
+from test_utils import random_user_list
 from add_user import add_user
 from delete_user import delete_user
 from get_users import get_users
 
-def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
-
-entries = []
-for _ in range(100):
-    for city in ['austin', 'boston', 'chicago']:
-        name = 'runapp_test_' + id_generator()
-        email = name + '@example.com'
-        entries.append((name, email, city))
-
+prefix = 'runapp_test_'
+user_list = random_user_list(prefix)
 users = get_users()
 length = len(users)
 
 print (length, 'original users')
+print ('adding', len(user_list), 'users')
 
-print ('adding', len(entries), 'users')
-
-for entry in entries:
-    add_user(entry[0], entry[1], entry[2])
+for user in user_list:
+    add_user(user[0], user[1], user[2])
 
 users = get_users()
 
 print(len(users), 'users')
-assert len(users) == length + len(entries)
+assert len(users) == length + len(user_list)
 
-print ('deleting', len(entries), 'users')
+print ('deleting', len(user_list), 'users')
 
 for user in users:
     if user['name'].startswith('runapp_test_'):
