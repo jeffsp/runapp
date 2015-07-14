@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		<%=title %>
-	</title>
-
-	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+	<% include ./partials/head %>
 </head>
+
 <body>
+
+	<header>
+        <% include ./partials/header %>
+    </header>
+
 	<% for(var i in messages) { %>
-	<div class="flash"><%= messages[i] %></div>
+		<div class="flash"><%= messages[i] %></div>
 	<% } %>
 
 	<div class="container">

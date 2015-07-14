@@ -31,7 +31,7 @@ exports.renderLogin = function(req, res, next) {
 		});
 	}
 	else {
-		return res.redirect('/');
+		return res.redirect('profile');
 	}
 };
 
@@ -44,6 +44,20 @@ exports.renderRegister = function(req, res, next) {
 	}
 	else {
 		return res.redirect('/');
+	}
+};
+
+exports.renderProfile = function(req, res, next) {
+	if (req.user) {
+		res.render('profile', {
+			title: 'Profile Page',
+			messages: req.flash('error'),
+			user: req.user.username,
+			name: req.user.name
+		});
+	}
+	else {
+		return res.redirect('login');
 	}
 };
 
