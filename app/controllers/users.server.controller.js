@@ -27,6 +27,7 @@ exports.renderLogin = function(req, res, next) {
 	if (!req.user) {
 		res.render('login', {
 			title: 'Log-in Form',
+			user: req.user ? req.user.username : '',
 			messages: req.flash('error') || req.flash('info')
 		});
 	}
@@ -39,6 +40,7 @@ exports.renderRegister = function(req, res, next) {
 	if (!req.user) {
 		res.render('register', {
 			title: 'Register Form',
+			user: req.user ? req.user.username : '',
 			messages: req.flash('error')
 		});
 	}
