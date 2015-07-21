@@ -24,6 +24,10 @@ module.exports = function(app) {
 		.get(users.renderProfile);
 		// .post(users.profile);
 
+	app.route('/messages')
+		.get(users.renderMessages);
+		// .post(users.profile);
+
 	app.get('/logout', users.logout);
 
 	app.get('/oauth/facebook', passport.authenticate('facebook', {

@@ -63,6 +63,20 @@ exports.renderProfile = function(req, res, next) {
 	}
 };
 
+exports.renderMessages = function(req, res, next) {
+	if (req.user) {
+		res.render('messages', {
+			title: 'Messages',
+			messages: req.flash('error'),
+			user: req.user.username,
+			name: req.user.name
+		});
+	}
+	else {
+		return res.redirect('login');
+	}
+};
+
 exports.register = function(req, res, next) {
 	if (!req.user) {
 		var user = new User(req.body);
