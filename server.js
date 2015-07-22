@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var config = require('./config/config');
 var mongojs = require('mongojs');
-var db = mongojs('users', ['users']);
+var db_mongojs = mongojs('users', ['users']);
 var bodyParser = require('body-parser')
 
 app.use(express.static(__dirname + '/public'));
@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 
 app.get('/users', function (req, res) {
     console.log('/users received a get request');
-    db.users.find(function(err, docs) {
+    db_mongojs.users.find(function(err, docs) {
         if (err != null)
             console.log('error:' + err);
         else
-            console.log('db.users.find() success');
+            console.log('db_mongojs.users.find() success');
         res.json(docs);
     });
 });
@@ -24,7 +24,7 @@ app.get('/users', function (req, res) {
 app.post('/users', function (req, res) {
     console.log('/users received a post request');
     console.log(req.body);
-    db.users.insert(req.body, function(err, doc) {
+    db_mongojs.users.insert(req.body, function(err, doc) {
             res.json(doc);
         });
 });
@@ -32,11 +32,11 @@ app.post('/users', function (req, res) {
 app.delete('/users/:id', function (req, res) {
     var id = req.params.id;
     console.log('/users received a delete request for id ' + id);
-    db.users.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+    db_mongojs.users.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
         if (err != null)
             console.log('error:' + err);
         else
-            console.log('db.users.remove() success');
+            console.log('db_mongojs.users.remove() success');
         res.json(doc);
     });
 });
@@ -44,7 +44,7 @@ app.delete('/users/:id', function (req, res) {
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     console.log('/users received a get request for id ' + id);
-    db.users.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+    db_mongojs.users.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
         res.json(doc);
     });
 });
@@ -52,7 +52,7 @@ app.get('/users/:id', function (req, res) {
 app.put('/users/:id', function (req, res) {
     var id = req.params.id;
     console.log('/users received a put request for id ' + id);
-    db.users.findAndModify({
+    db_mongojs.users.findAndModify({
         query: {_id: mongojs.ObjectId(id)},
         update: {$set: {name: req.body.name, email: req.body.email, city: req.body.city}},
         new: true}, function (err, doc) {
