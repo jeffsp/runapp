@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<% include ./partials/head %>
+    <% include ./partials/head %>
 </head>
 
 <body>
 
-	<header>
+    <header>
         <% include ./partials/header %>
-    </header>	
+    </header>
 
     <div class="container">
-	    <img src="img/logo.jpg" class="img-circle img-responsive" alt="These people are running!">
-	    <p class="lead">Run app is an app that will do something useful.</p>
-	</div>
-	
+        <img src="img/logo.jpg" class="img-circle img-responsive" alt="These people are running!">
+        <p class="lead">Run app is an app that will do something useful.</p>
+    </div>
 
-	<div class="container">
+
+    <div class="container">
         <% if ( user ) { %>
-			<h2>Hello <%=user%> </h2>
-			<a href="/logout">Logout</a>
-		<% } else { %>
-			<h3><a href="/login">Login</a> or <a href="/register">Sign up</a></h3>
-		<% } %>
-	</div>
+            <h2>Hello <%=user%> </h2>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <h3><a href="/login">Login</a> or <a href="/register">Sign up</a></h3>
+        <% } %>
+    </div>
 
 
 </body>

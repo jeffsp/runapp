@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html ng-app = 'runapp'>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<title>Users</title>
+
+</head>
+<body>
+
+    <div class='container' ng-controller='AppCtrl'>
+
+        <h1>Users</h1>
+
+        <table class='table'>
+            <thead>
+                <tr>
+                <th>Name</th><th>Email</th><th>City</th><th>Action</th><th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><input class="form-control" ng-model="user.name"></td>
+                  <td><input class="form-control" ng-model="user.email"></td>
+                  <td><input class="form-control" ng-model="user.city"></td>
+                  <td><button class="btn btn-primary" ng-click="addUser()">Add User</button></td>
+                  <td><button class="btn btn-info" ng-click="update()">Update</button>
+                      <button class="btn btn-info" ng-click="deselect()">Clear</button>
+                  </td>
+                </tr>
+                <tr ng-repeat='user in user_list'>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.city}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js"> </script>
+
+</body>
+</html>
