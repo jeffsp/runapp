@@ -11,6 +11,7 @@
     "url": "git@github.com:jeffsp/runapp.git"
   },
   "author": "Jeff & Stephen",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "*",
     "connect-flash": "*",
@@ -20,6 +21,7 @@
     "mongoose": "^4.0.6",
     "passport": "*",
     "passport-facebook": "^2.0.0",
-    "passport-local": "*"
+    "passport-local": "*",
+    "mongojs": "^1.0.2"
   }
 }
