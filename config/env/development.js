@@ -1,4 +1,4 @@
-var port = 1987;
+var port = 3001;
 
 module.exports = {
 	port: port,
