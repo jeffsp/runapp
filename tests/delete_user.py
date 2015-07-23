@@ -4,7 +4,7 @@ import requests
 
 
 def delete_user(uid):
-    r = requests.delete("http://localhost:3001/users/%s" % uid)
+    r = requests.delete("http://localhost:1987/users/%s" % uid)
     return r.text
 
 if __name__ == '__main__':

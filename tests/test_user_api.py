@@ -24,7 +24,7 @@ class TestUserApi(unittest.TestCase):
         print (length, 'original users')
         print ('adding', len(user_list), 'users')
         for user in user_list:
-            add_user(user[0], user[1], user[2])
+            add_user(user)
         users = get_users()
         print(len(users), 'users')
         self.assertTrue(len(users) == length + len(user_list))
@@ -44,7 +44,7 @@ class TestUserApi(unittest.TestCase):
         print ('adding', len(user_list), 'users')
         for user in user_list:
             print(user)
-            add_user(user[0], user[1], user[2])
+            add_user(user)
 
     def func2b(self):
         """
@@ -56,10 +56,8 @@ class TestUserApi(unittest.TestCase):
             if user['name'].startswith(prefix):
                 n += 1
                 uid = user['_id']
-                name = user['name']
-                city = user['city']
-                email = 'new_' + user['email']
-                text = update_user(uid, name, email, city)
+                user['email'] = 'new_' + user['email']
+                text = update_user(uid, user)
                 print(text)
         print('updated %d users' % n)
 
