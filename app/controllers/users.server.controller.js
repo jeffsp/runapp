@@ -87,12 +87,12 @@ exports.register = function(req, res, next) {
                 var message = getErrorMessage(err);
                 req.flash('error', message);
                 return res.redirect('/register');
-            }   
+            }
 
             req.login(user, function(err) {
-                if (err) 
+                if (err)
                     return next(err);
-                
+
                 return res.redirect('/');
             });
         });
