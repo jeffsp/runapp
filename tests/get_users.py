@@ -10,16 +10,15 @@ def get_users():
     Get a list of dictionaries of users
     """
     headers = {'content-type': 'application/json'}
-    data=None
+    data = None
 
-    r = requests.get("http://localhost:3001/users", headers=headers, data=data)
+    r = requests.get("http://localhost:1987/users", headers=headers, data=data)
     return json.loads(r.text)
 
 
 if __name__ == '__main__':
-    keys = ['name', 'email', 'city']
 
     for entry in get_users():
-        print('----')
-        for key in keys:
+        print('')
+        for key in entry.keys():
             print('%s: %s' % (key, entry[key]))
