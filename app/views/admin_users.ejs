@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<U!DOCTYPE>
 <html ng-app = 'runapp'>
 <head>
 
@@ -25,7 +25,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.cs
         <table class='table'>
             <thead>
                 <tr>
-                <th>Name</th><th>Email</th><th>City</th><th>Action</th><th>&nbsp;</th>
+                <th>Name</th><th>Email</th><th>City</th><th>UserName</th><th>Action</th><th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +33,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.cs
                   <td><input class="form-control" ng-model="user.name"></td>
                   <td><input class="form-control" ng-model="user.email"></td>
                   <td><input class="form-control" ng-model="user.city"></td>
+                  <td><input class="form-control" ng-model="user.username"></td>
                   <td><button class="btn btn-primary" ng-click="addUser()">Add User</button></td>
                   <td><button class="btn btn-info" ng-click="update()">Update</button>
                       <button class="btn btn-info" ng-click="deselect()">Clear</button>
@@ -42,6 +43,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.cs
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.city}}</td>
+                    <td>{{user.username}}</td>
                     <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
                     <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td>
                 </tr>
