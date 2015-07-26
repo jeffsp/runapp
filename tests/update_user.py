@@ -9,7 +9,7 @@ def update_user(uid, payload):
     headers = {'content-type': 'application/json'}
     data = json.dumps(payload)
 
-    r = requests.put("http://localhost:1987/users/%s" % uid,
+    r = requests.put("http://localhost:3001/users/%s" % uid,
                      headers=headers,
                      data=data)
     return r.text

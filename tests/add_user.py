@@ -12,7 +12,7 @@ def add_user(payload):
     headers = {'content-type': 'application/json'}
     data = json.dumps(payload)
 
-    r = requests.post("http://localhost:1987/users",
+    r = requests.post("http://localhost:3001/users",
                       headers=headers,
                       data=data)
 

@@ -12,7 +12,7 @@ def get_users():
     headers = {'content-type': 'application/json'}
     data = None
 
-    r = requests.get("http://localhost:1987/users", headers=headers, data=data)
+    r = requests.get("http://localhost:3001/users", headers=headers, data=data)
     return json.loads(r.text)
 
 
