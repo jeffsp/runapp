@@ -32,6 +32,7 @@ exports.renderLogin = function(req, res, next) {
         });
     }
     else {
+        res.session.user = req.user;
         return res.redirect('profile');
     }
 };

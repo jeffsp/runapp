@@ -1,9 +1,11 @@
 var config = require('./config'),
     express = require('express'),
+    mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     passport = require('passport'),
     flash = require('connect-flash'),
-    session = require('express-session');
+    session = require('express-session'),
+    mongoStore = require('connect-mongo')(session);
 
 module.exports = function() {
     var app = express();
@@ -15,6 +17,7 @@ module.exports = function() {
     app.use(bodyParser.json());
 
     app.use(session({
+        store: new mongoStore({ mongooseConnection: mongoose.connection }),
         saveUninitialized: true,
         resave: true,
         secret: 'OurSuperSecretCookieSecret'
