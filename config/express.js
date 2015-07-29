@@ -34,7 +34,6 @@ module.exports = function() {
     require('../app/routes/users.server.routes.js')(app);
     require('../app/routes/search.server.routes.js')(app);
     require('../app/routes/admin.routes.js')(app);
-    require('../app/routes/users.api.routes.js')(app);
 
     app.use(express.static('./public'));
 
