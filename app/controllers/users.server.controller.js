@@ -51,17 +51,18 @@ exports.renderRegister = function(req, res, next) {
 };
 
 exports.renderProfile = function(req, res, next) {
-    if (req.user) {
-        res.render('profile', {
-            title: 'Profile Page',
-            messages: req.flash('error'),
-            user: req.user.username,
-            name: req.user.name
-        });
+    if(req.user) {
+        console.log('Working')
+    } else {
+        console.log('Not working')
     }
-    else {
-        return res.redirect('login');
-    }
+    res.render('profile', {
+        title: 'Profile Page',
+        messages: req.flash('error'),
+        user: req.user.username,
+        name: req.user.name,
+        city: req.user.city
+    });    
 };
 
 exports.renderMessages = function(req, res, next) {
@@ -175,6 +176,22 @@ exports.read = function(req, res) {
 exports.userByID = function(req, res, next, id) {
     User.findOne({
             _id: id
+        }, 
+        function(err, user) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                req.user = user;
+                next();
+            }
+        }
+    );
+};
+
+exports.userByUserName = function(req, res, next, username) {
+    User.findOne({
+            username: username
         }, 
         function(err, user) {
             if (err) {

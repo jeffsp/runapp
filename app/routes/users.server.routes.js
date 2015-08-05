@@ -2,11 +2,20 @@ var users = require('../../app/controllers/users.server.controller'),
     passport = require('passport');
 
 module.exports = function(app) {
-    app.route('/users').post(users.create).get(users.list);
 
-    app.route('/users/:userId').get(users.read).put(users.update).delete(users.delete);
+    app.route('/users')
+        .post(users.create)
+        .get(users.list);
+
+    app.route('/users/:userId')
+        .get(users.read)
+        .put(users.update)
+        .delete(users.delete);
+
 
     app.param('userId', users.userByID);
+
+    app.param('username', users.userByUserName);
 
     app.route('/register')
         .get(users.renderRegister)
@@ -20,13 +29,11 @@ module.exports = function(app) {
             failureFlash: true
         }));
 
-    app.route('/profile')
+    app.route('/profile/:username')
         .get(users.renderProfile);
-        // .post(users.profile);
 
     app.route('/messages')
         .get(users.renderMessages);
-        // .post(users.profile);
 
     app.get('/logout', users.logout);
 
