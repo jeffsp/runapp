@@ -27,12 +27,12 @@ exports.renderLogin = function(req, res, next) {
     if (!req.user) {
         res.render('login', {
             title: 'Log-in Form',
-            user: req.user ? req.user.username : '',
+            user: '',
             messages: req.flash('error') || req.flash('info')
         });
     }
     else {
-        res.session.user = req.user;
+        req.session.user = req.user;
         return res.redirect('profile');
     }
 };
