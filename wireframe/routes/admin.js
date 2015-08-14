@@ -6,11 +6,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next) {
-  res.render('admin-users', { title: 'Admin Users' });
+  res.render('admin_users', { title: 'Admin Users' });
 });
 
 router.get('/messages', function(req, res, next) {
-  res.render('admin-messages', { title: 'Admin Messages' });
+  res.render('admin_messages', { title: 'Admin Messages' });
 });
 
 module.exports = router;
