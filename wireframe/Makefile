@@ -1,2 +1,2 @@
 default:
-	DEBUG=wireframe npm start
+	DEBUG=wireframe PORT=3001 npm start
