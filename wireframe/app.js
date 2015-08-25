@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 var session_options = {
     store: new mongoStore({ mongooseConnection: mongoose.connection }),
     secret: 'paixeH0s',
-    cookie: { maxAge: 60000 },
-    resave: true,
-    saveUninitialized: true,
+    cookie: { maxAge: 7 * 24 * 3600 * 1000 }, // Week long cookie
+    resave: false,
+    saveUninitialized: false,
 }
 
 // Look for NODE_ENV in environment
@@ -48,13 +48,11 @@ app.use(expressSession(session_options));
 // Session
 app.use(function(req, res, next) {
     var current_session = req.session;
-    console.log('req:' + req)
-    console.log('req.session:' + req.session)
     if (current_session.views) {
         current_session.views++
     } else {
+        console.log('Initializing session cookie')
         current_session.views = 1
-        current_session.cookie.expires = 7 * 24 * 3600 * 1000; // Week long cookie
     }
     next();
 })

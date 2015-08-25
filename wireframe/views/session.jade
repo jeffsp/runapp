@@ -4,7 +4,7 @@ block content
   h1= title
   p #{title}
   p Session views: #{session.views}
-  p Session timeout: #{session.cookie.maxAge / 1000 / 3600 / 24} days
+  p Session timeout: #{session.cookie.maxAge / 1000 / 3600 / 24 } days
   p Session cookie:
   =JSON.stringify(session.cookie)
 
