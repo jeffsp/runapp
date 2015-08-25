@@ -3,13 +3,10 @@ var router = express.Router();
 
 router.get('/',
     function(req, res, next) {
-        res.render('register', { title: 'Register' });
-    }
-);
-
-router.post('/',
-    function(req, res, next) {
-        return res.redirect('/');
+        res.render('session', {
+            title: 'Session',
+            session: req.session
+        });
     }
 );
 
